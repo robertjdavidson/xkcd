@@ -1,0 +1,23 @@
+body {
+    margin: 0 auto 20px auto;
+    width: 960px;
+}
+.m15 {
+    margin: 15px;
+}
+.mt15 {
+    margin-top: 15px;
+}
+
+.reveal-animation.ng-enter {
+    -webkit-animation: enter_sequence 1s linear; /* Safari/Chrome */
+    animation: enter_sequence 1s linear; /* IE10+ and Future Browsers */
+}
+@-webkit-keyframes enter_sequence {
+    from { opacity:0; }
+    to { opacity:1; }
+}
+@keyframes enter_sequence {
+    from { opacity:0; }
+    to { opacity:1; }
+}

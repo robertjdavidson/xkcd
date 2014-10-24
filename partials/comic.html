@@ -1,0 +1,30 @@
+<div ng-show="error">
+    <div style="margin-top: 100px">
+        <h3>Oops. Computer says '{{error.statusText}}'.</h3>
+    </div>
+    <div style="margin-top: 20px">
+        Return to the <a ui-sref="comic({id: 'latest'})">latest</a> comic?
+    </div>
+</div>
+<div style="width: 100%; text-align: center;" ng-show="comic.num">
+    <div>
+        <h3>{{comic.safe_title}}</h3>
+    </div>
+    <div>
+        <button class="btn btn-sm btn-default" ui-sref="comic({id: (comic.num - 1)})">&lt; Previous</button>
+        <button class="btn btn-sm btn-default" ui-sref="comic({id: 'latest'})">Latest</button>
+        <button class="btn btn-sm btn-default" ui-sref="comic({id: comic.num + 1})" ng-disabled="comic.num >= latest.num">Next &gt;</button>
+    </div>
+    <div class="m15">
+        <img ng-src="{{comic.img}}"/>
+    </div>
+    <div>
+        {{comic.alt}}
+    </div>
+    <div>
+        {{comic.formattedDate}}
+    </div>
+    <div class="mt15">
+        Need this one <a target="_blank" href="http://www.explainxkcd.com/wiki/index.php/{{comic.num}}">explained</a>?
+    </div>
+</div>
