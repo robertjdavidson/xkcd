@@ -1,18 +1,57 @@
-<div style="margin-top: 100px">
+<div class="mt20">
     <h3>About this app</h3>
 </div>
-<div style="margin-top: 20px">
+<div class="mt20">
     <p>
-        This app is a quick demo showing how to make a single page app using <a target="_blank" href="https://angularjs.org/">AngularJS</a>.
+        This app is a quick demo showing how to make a single page web app using <a target="_blank" href="https://angularjs.org/">AngularJS</a>. If you would like to clone it, the
+        <a target="_blank" href="https://github.com/robertjdavidson/xkcd">repo is available on github</a>.
     </p>
     <p>
-        The following AngularJS technologies were used in this app:
-        <ul>
-            <li><a target="_blank" href="https://angular-ui.github.io/">AngularUI (UI-Bootstrap)</a> which provides Twitter Bootstrap written natively in AngularJS</li>
-            <li><a target="_blank" href="https://github.com/angular-ui/ui-router">ui-router</a> which provides flexible routing and deep linking</li>
-            <li><a target="_blank" href="https://docs.angularjs.org/api/ngResource">ngResource</a> which provides interaction support with RESTful services</li>
-            <li><a target="_blank" href="https://docs.angularjs.org/api/ngAnimate">ngAnimate</a> which provides support for JavaScript, CSS3 transition and CSS3 keyframe animation</li>
-            <li><a target="_blank" href="https://jasmine.github.io/">Jasmine</a> which is a behavior-driven development framework for testing JavaScript code.</li>
-        </ul>
+        <a target="_blank" href="http://xkcd.com/">xkcd</a> is a long running webcomic by Randall Munroe but I suspect if you are reading this, xkcd is not new to you.
     </p>
+    <h4 class="mt20">How does it work?</h4>
+    <p>
+        Most importantly, this is a single page web app. The resource in the address bar at the top is index.html and that does not change throughout the use of the app. All of the magic
+        that makes it so is provided by <a target="_blank" href="https://angularjs.org/">AngularJS</a>. One of the first decisions to make in a single page web app I discovered is whether
+        you want to support deep linking or not. Deep linking is the ability to be able to use a URL to be able to jump straight to a part deep inside the app. I decided that I did want to
+        support deep linking so I used ui-router to structure my app. In addition to provide a good way to structure your app, ui-router offers deep linking through fragments following the #
+        end of a URL. A hash prefix (such as a !) can be added as well if the fragment confuses your web server. Angular can use the HTML 5 history API if available and fall back to hashbangs
+        if not. This model keeps the trusty back button working as well.
+    </p>
+    <p>
+        Angular allows you to structure your app into small (testable) chunks spread across different files which has obvious development and testing benefits. Angular also offers dependency
+        injection to wire it altogether. Angular supports MVW (Model View Whatever) framework. In this case I am using a MVVM (Model View ViewModel) framework as the $scope and controller work
+        togther whislt keeping the mark-up and model separate.
+    </p>
+    <h4 class="mt20">Accessing the comics?</h4>
+    <p>
+        The xkcd site offers a <a target="_blank" href="http://xkcd.com/json.html">JSON interface</a> which is very handy. Unfortunately it does not support
+        <a target="_blank" href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> so there is no loading the data strainght into the app. Fortunately the Angular
+        <a target="_blank" href="https://docs.angularjs.org/api/ngResource/service/$resource">$resource</a> service offers a <a target="_blank" href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> alternative. JSONP can help you
+        get around CORS issues by generating a script tag in the DOM which the browser will dutifully load for you from any domain. To allow your app to access the data the data has to come back
+        from the remote server wrapped up in a function call which will execute and inject the data into your app. Obviously you have to trust the source (or be prepared to filter the response)
+        as the remote server is injecting data directly into your app. Fortunately the xkcd site offers a JSONP service which has been used in this app. Angular will dynamically generate a JavaScript
+        method with an appropriate namespace that the remote server wraps the data in automatically.
+    </p>
+    <h4 class="mt20">What about testing?</h4>
+    <p>
+        Automated tests should be a part of any software and the same goes for web apps like this one. I've used <a target="_blank" href="https://jasmine.github.io/">Jasmine</a> for testing
+        the ComicController which is the main controller in my app. You can do server side testing using <a target="_blank" href="http://nodejs.org/">Node</a> and
+        <a target="_blank" href="https://www.npmjs.org/package/karma">Karma</a> but for this app, I've kept it simple and developed a <a target="_blank" href="test.html">small suite of tests</a>
+        that run in the browser.
+    </p>
+    <h4 class="mt20">What AngularJS  technologies were used?</h4>
+    The following AngularJS technologies were used in this app:
+    <ul>
+        <li><a target="_blank" href="https://angular-ui.github.io/">AngularUI (UI-Bootstrap)</a> which provides Twitter Bootstrap written natively in AngularJS</li>
+        <li><a target="_blank" href="https://github.com/angular-ui/ui-router">ui-router</a> which provides flexible routing and deep linking</li>
+        <li><a target="_blank" href="https://docs.angularjs.org/api/ngResource">ngResource</a> which provides interaction support with RESTful services</li>
+        <li><a target="_blank" href="https://docs.angularjs.org/api/ngAnimate">ngAnimate</a> which provides support for JavaScript, CSS3 transition and CSS3 keyframe animation</li>
+        <li><a target="_blank" href="https://jasmine.github.io/">Jasmine</a> which is a behavior-driven development framework for testing JavaScript code</li>
+    </ul>
+    Other interesting AngularJS technologies used in this app:
+    <ul>
+        <li><a href="https://docs.angularjs.org/api/ng/service/$q">$q service</a> which is a promise/deferred implementation</li>
+        <li><a href="https://docs.angularjs.org/guide/unit-testing">Unit Testingt</a> which how Angular apps can be tested</li>
+    </ul>
 </div>

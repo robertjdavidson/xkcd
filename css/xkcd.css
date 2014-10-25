@@ -8,6 +8,9 @@ body {
 .mt15 {
     margin-top: 15px;
 }
+.mt20 {
+    margin-top: 15px;
+}
 
 .reveal-animation.ng-enter {
     -webkit-animation: enter_sequence 1s linear; /* Safari/Chrome */

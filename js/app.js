@@ -1,3 +1,5 @@
+'use strict';
+
 var xkcdApp = angular.module('xkcdApp',['ui.bootstrap', 'ui.router', 'ngResource', 'ngAnimate', 'xkcdApp.controllers','xkcdApp.services']);
 
 xkcdApp.config(function($stateProvider) {
