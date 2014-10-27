@@ -14,8 +14,8 @@
         Most importantly, this is a single page web app. The resource in the address bar at the top is index.html and that does not change throughout the use of the app. All of the magic
         that makes it so is provided by <a target="_blank" href="https://angularjs.org/">AngularJS</a>. One of the first decisions to make in a single page web app I discovered is whether
         you want to support deep linking or not. Deep linking is the ability to be able to use a URL to be able to jump straight to a part deep inside the app. I decided that I did want to
-        support deep linking so I used ui-router to structure my app. In addition to provide a good way to structure your app, ui-router offers deep linking through fragments following the #
-        end of a URL. A hash prefix (such as a !) can be added as well if the fragment confuses your web server. Angular can use the HTML 5 history API if available and fall back to hashbangs
+        support deep linking so I used ui-router to structure my app. In addition to providing a good way to structure your app, ui-router offers deep linking through fragments following the #
+        at the end of a URL. A hash prefix (such as a !) can be added as well if the fragment confuses your web server. Angular can use the HTML 5 history API if available and fall back to hashbangs
         if not. This model keeps the trusty back button working as well.
     </p>
     <p>
@@ -36,7 +36,7 @@
     <h4 class="mt20">What about testing?</h4>
     <p>
         Automated tests should be a part of any software and the same goes for web apps like this one. I've used <a target="_blank" href="https://jasmine.github.io/">Jasmine</a> for testing
-        the ComicController which is the main controller in my app. You can do server side testing using <a target="_blank" href="http://nodejs.org/">Node</a> and
+        the comicController which is the main controller in my app. You can do server side testing using <a target="_blank" href="http://nodejs.org/">Node</a> and
         <a target="_blank" href="https://www.npmjs.org/package/karma">Karma</a> but for this app, I've kept it simple and developed a <a target="_blank" href="test.html">small suite of tests</a>
         that run in the browser.
     </p>

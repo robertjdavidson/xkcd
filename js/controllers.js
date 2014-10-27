@@ -2,7 +2,7 @@
 
 var xkcdAppControllers = angular.module('xkcdApp.controllers', []);
 
-xkcdAppControllers.controller('ComicController', function($rootScope, $scope, $stateParams, $log, comicService) {
+xkcdAppControllers.controller('comicController', function($rootScope, $scope, $stateParams, $log, comicService) {
     comicService.byId({id: $stateParams.id},
         function(comic) {
             $scope.comic = comic;
@@ -17,6 +17,6 @@ xkcdAppControllers.controller('ComicController', function($rootScope, $scope, $s
     );
 });
 
-xkcdAppControllers.controller('AboutController', function($scope) {
+xkcdAppControllers.controller('aboutController', function($scope) {
     this.message = "hello";
 });
