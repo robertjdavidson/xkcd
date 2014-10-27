@@ -1,12 +1,12 @@
 'use strict';
 
-describe("ComicController tests", function() {
+describe("comicController tests", function() {
 
     var rootScope, scope, log, stateParams, comicController, comicService, q, deferred;
     beforeEach(module("xkcdApp.controllers"));
 
-    //Set up the mock comicService. Calls to the comicService will return a promise which is how Angular handles ansynchronous activity.
-    // The mock comicService works in the same way and has been set up to all the test case to drive when the promise is fulfilled and how.
+    //Set up the test comicService. Calls to the comicService will return a promise which is how Angular handles ansynchronous activity.
+    // The test comicService works in the same way and has been set up to allow the test case to drive when the promise is fulfilled and how.
     beforeEach(function() {
         comicService = {
             data: {
@@ -41,7 +41,7 @@ describe("ComicController tests", function() {
 
     it("should fetch the latest comic from xkcd", inject(function($controller) {
         stateParams = {id: "latest"};
-        comicController = $controller("ComicController", {
+        comicController = $controller("comicController", {
             $rootScope: rootScope,
             $scope: scope,
             $stateParams: stateParams,
@@ -59,7 +59,7 @@ describe("ComicController tests", function() {
 
     it("should fetch comic 1436 from xkcd", inject(function($controller) {
         stateParams = {id: 1436};
-        comicController = $controller("ComicController", {
+        comicController = $controller("comicController", {
             $rootScope: rootScope,
             $scope: scope,
             $stateParams: stateParams,
@@ -76,7 +76,7 @@ describe("ComicController tests", function() {
 
     it("should try and fetch comic 1500 from xkcd which is missing", inject(function($controller) {
         stateParams = {id: 1500};
-        comicController = $controller("ComicController", {
+        comicController = $controller("comicController", {
             $rootScope: rootScope,
             $scope: scope,
             $stateParams: stateParams,

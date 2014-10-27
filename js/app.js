@@ -6,11 +6,11 @@ xkcdApp.config(function($stateProvider) {
     $stateProvider.state('about', {
         url:'/about',
         templateUrl:'partials/about.html',
-        controller:'AboutController'
+        controller:'aboutController'
     }).state('comic', {
         url:'/comics/:id',
         templateUrl:'partials/comic.html',
-        controller:'ComicController'
+        controller:'comicController'
     });
 }).run(function($state) {
     $state.go('comic', {id: 'latest'});
