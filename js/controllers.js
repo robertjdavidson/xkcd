@@ -18,5 +18,4 @@ xkcdAppControllers.controller('comicController', function($rootScope, $scope, $s
 });
 
 xkcdAppControllers.controller('aboutController', function($scope) {
-    this.message = "hello";
 });
